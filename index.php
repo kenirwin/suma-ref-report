@@ -115,7 +115,7 @@ print $pie_html;
 </div><!--id=tabs-2-->
 
 <div id="tabs-3">
-<?
+<?php
 foreach ($stats->ListCrosstabPairs() as $pair) {
     $a = $pair[0];
     $b = $pair[1];
@@ -131,5 +131,7 @@ foreach ($stats->ListCrosstabPairs() as $pair) {
 
 </div><!--id=tabs-->
 
-
+<?php
+    include("license.php");
+?> 
 </body>
