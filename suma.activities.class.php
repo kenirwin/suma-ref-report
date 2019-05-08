@@ -9,8 +9,15 @@ class Stats {
 
     public function __construct($init, $suma_server_url, $startdate='', $enddate='')
     {
+        $done = false;
+        $i = 0;
+        while (! $done) { 
         $suma_query_url = $suma_server_url . "/query/counts?";
         $suma_query_url .= 'id=' . $init . '&';
+
+        if (isset($offset)) {
+            $suma_query_url .= 'offset=' . $offset . '&';
+        }
 
         if (isset($startdate)) { 
             $suma_query_url .= 'sdate='.$startdate.'&';
@@ -18,12 +25,31 @@ class Stats {
         if (isset($startdate)) { 
             $suma_query_url .= 'edate='.$enddate.'&';
         }
+
         $json = file_get_contents($suma_query_url);
         $response = json_decode($json);    
 
         $this->dict = $response->initiative->dictionary;
-        $this->counts = $response->initiative->counts;
-        $this->firstTime = $response->initiative->counts[0]->time;
+        if (is_array($this->counts)) {
+            $this->counts = array_merge($this->counts,$response->initiative->counts);
+        }
+        else { 
+            $this->counts = $response->initiative->counts;
+        }
+        if ($i == 0) { //only on first iteration
+            $this->firstTime = $response->initiative->counts[0]->time;
+        }
+
+        if ($response->status->{'has more'} == 'false') {
+            $done = true;
+        }
+        $i++;
+        if ($i > MAX_API_QUERIES) { $done = true; } //this is a failsafe -- if it ever exceeds x-many loops, stop
+        if (! $done) { 
+            $offset = $response->status->offset; 
+            $status = $response->status->{'has more'};
+        }
+
         
         $activityTitles = array();
         foreach ($this->dict->activities as $a) {
@@ -38,6 +64,7 @@ class Stats {
                 $activityGroupTitles[$a->id] = $a->title;
         }
         $this->activityGroupTitles = $activityGroupTitles;
+        }
     }
 
     public function ActivityGroups() {
