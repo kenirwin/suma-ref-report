@@ -1,4 +1,4 @@
-<? 
+<?php 
 include("/docs/lib/include/scripts.php");
 ?>
 

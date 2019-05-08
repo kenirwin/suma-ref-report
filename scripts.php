@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 These scripts are deprecated -- use the suma.activities.class.php instead
  */

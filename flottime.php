@@ -1,4 +1,4 @@
-<?
+<?php
 /*
   NOTE: You MUST include jquery, flot, and the flot.time plugin
   AND: you must define the style for .demo-placeholder, which can be done

@@ -1,4 +1,4 @@
-<?
+<?php
 function FlotPie ($data, $divlabel='') {
     if ($divlabel == '') { $divlabel = rand(0,100000000); }
     $json_data = array();

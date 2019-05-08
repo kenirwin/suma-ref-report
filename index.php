@@ -7,13 +7,15 @@ thead td, tfoot td { font-weight: bold }
 form { display: inline }
 .highlight { background-color: yellow }
 </style>
-
-<?
-include("/docs/lib/include/scripts.php");
+<script type="text/javascript"
+         src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<?php
+include("/docs/lib/include/jquery/plugins.php");
 jQueryPlugins("jqueryUI","flot","flot-time","flot-pie", "flot-tooltip");
 ?>
 <script type="text/javascript" src="heatmap.js"></script>
-<?
+<?php
 require_once ("suma.activities.class.php");
 include ("flottime.php");
 include ("flotpie.php");
@@ -66,7 +68,7 @@ foreach ($groupinfo as $i => $group) {
                      $(this).addClass('highlight');
                  });
 
-<?
+<?php
                 print $pie_scripts;
 ?>
 
@@ -85,7 +87,7 @@ foreach ($groupinfo as $i => $group) {
 </head>
 <body>
 <h1>Suma Ref Report</h1>
-<?
+<?php
 
 if (DEBUG === true) {
     var_dump($_REQUEST);
@@ -103,13 +105,13 @@ if (DEBUG === true) {
     <li><a href="#tabs-3">Activity Crosstabs</a></li>
 </ul>
 <div id="tabs-1">
-<? 
+<?php
 print (CreateFlotTimeChart($weekly_chart_data));
 print ($weekly_table);
 ?>
 </div>
 <div id="tabs-2">
-<?
+<?php
 print $pie_html;
 ?>
 </div><!--id=tabs-2-->

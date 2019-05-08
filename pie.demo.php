@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
      <title>Flot Examples: Basic Usage</title>
      <link href="/lib/include/jquery/flot/examples/examples.css" rel="stylesheet" type="text/css">
-<?
+<?php
      include("/docs/lib/include/scripts.php");
 jQueryPlugins("flot","flot-time","flot-pie","flot-tooltip");
 include("flotpie.php");

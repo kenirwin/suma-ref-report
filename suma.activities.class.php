@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Stats {
     public $dict = '';
@@ -21,7 +21,6 @@ class Stats {
         $json = file_get_contents($suma_query_url);
         $response = json_decode($json);    
 
-        //        print_r ($response);
         $this->dict = $response->initiative->dictionary;
         $this->counts = $response->initiative->counts;
         $this->firstTime = $response->initiative->counts[0]->time;

@@ -1,4 +1,4 @@
-<?
+<?php
 include("/docs/lib/include/scripts.php");
 require_once ("config.php");
 require_once ("suma.activities.class.php");
@@ -7,7 +7,7 @@ include("crosstab.php");
 
 <script type="text/javascript" src="heatmap.js"></script>
 
-<?
+<?php
 $stats = new Stats(3, SUMASERVER_URL);
 
 foreach ($stats->ListCrosstabPairs() as $pair) {
