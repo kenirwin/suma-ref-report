@@ -2,6 +2,8 @@ v.0.2.0 - 2019-05-08
 * updated to php 7
 * reduced dependency of local server files outside repo
 * handle serialization when multiple api queries required to get data
+* added config: add this to config.php if upgrading from 0.1.0 
+  * define ("MAX_API_QUERIES", 15);
 
 v.0.1.0 - 2016-07-22
 * original version
