@@ -7,13 +7,22 @@ thead td, tfoot td { font-weight: bold }
 form { display: inline }
 .highlight { background-color: yellow }
 </style>
+
+<!-- jQuery 2.1.4 -->
 <script type="text/javascript"
          src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
 </script>
-<?php
-include("/docs/lib/include/jquery/plugins.php");
-jQueryPlugins("jqueryUI","flot","flot-time","flot-pie", "flot-tooltip");
-?>
+
+<!-- PLUGIN: jqueryUI 1.11.3 -->
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<link type="text/css" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+
+<!-- PLUGIN: flot 0.8.3, tooltip 0.9.0 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.time.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.pie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot.tooltip/0.9.0/jquery.flot.tooltip.min.js"></script>
+
 <script type="text/javascript" src="heatmap.js"></script>
 <?php
 require_once ("suma.activities.class.php");
